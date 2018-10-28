@@ -18,20 +18,20 @@ public class MainController {
 
     @GetMapping
     public void home(HttpServletResponse response) throws IOException {
-        response.sendRedirect("api/event");
+        response.sendRedirect("event");
     }
 
-    @GetMapping("/api/event")
+    @GetMapping("/home")
     public List<Event> getAllEvents() {
         return eventService.getAllEvents();
     }
 
-    @GetMapping("/api/event/{id}")
+    @GetMapping("/event/{id}")
     public Event getEventById(@PathVariable int id) {
         return eventService.getEventById(id);
     }
 
-    @PostMapping("/api/event/{id}")
+    @PostMapping("/event/{id}")
     public Event createEvent(@RequestBody Event event) {
         eventService.createEvent(event);
         return event;

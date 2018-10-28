@@ -21,6 +21,9 @@ public class Event {
     @Column(name = "description")
     private String description;
 
+    @Column(name="imageUrl")
+    private String imageUrl;
+
     Event() {}
 
     public Event(String title, String description, int id) {
