@@ -21,23 +21,23 @@ public class MainController {
         response.sendRedirect("event");
     }
 
-    @GetMapping("/home")
+    @GetMapping("api/event")
     public List<Event> getAllEvents() {
         return eventService.getAllEvents();
     }
 
-    @GetMapping("/event/{id}")
+    @GetMapping("api/event/{id}")
     public Event getEventById(@PathVariable int id) {
         return eventService.getEventById(id);
     }
 
-    @PostMapping("/event/{id}")
+    @PostMapping("api/event/{id}")
     public Event createEvent(@RequestBody Event event) {
         eventService.createEvent(event);
         return event;
     }
 
-    @PutMapping("/event/{id}")
+    @PutMapping("api/event/{id}")
     public Event updateEvent(@PathVariable int id, @RequestBody Event event) {
         return eventService.updateEvent(id,event);
     }
