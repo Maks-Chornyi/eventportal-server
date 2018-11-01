@@ -37,7 +37,7 @@ public class MainController {
         return event;
     }
 
-    @PutMapping("api/event/{id}")
+    @PutMapping("/api/event/{id}")
     public Event updateEvent(@PathVariable int id, @RequestBody Event event) {
         return eventService.updateEvent(id,event);
     }

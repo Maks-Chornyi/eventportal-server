@@ -1,9 +1,7 @@
 package portal.event.eventportal.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
+import java.sql.Date;
 import java.util.Objects;
 
 @Entity
@@ -24,25 +22,20 @@ public class Event {
     @Column(name = "imageUrl")
     private String imageUrl;
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
+    @Column(name="date")
+    private Date date;
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
+    @Column(name="place")
+    private String place;
 
     Event() {}
 
-    public Event(String title, String description, String imageUrl) {
+    public Event(String title, String description, String imageUrl, Date date, String place) {
         this.title = title;
         this.description = description;
         this.imageUrl = imageUrl;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, title, description);
+        this.date = date;
+        this.place = place;
     }
 
     public String getTitle() {
@@ -61,11 +54,53 @@ public class Event {
         this.description = description;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Event event = (Event) o;
+        return id == event.id &&
+                Objects.equals(title, event.title) &&
+                Objects.equals(description, event.description) &&
+                Objects.equals(imageUrl, event.imageUrl) &&
+                Objects.equals(date, event.date) &&
+                Objects.equals(place, event.place);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, description);
     }
 }
