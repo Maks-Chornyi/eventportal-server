@@ -31,13 +31,13 @@ public class MainController {
         return eventService.getEventById(id);
     }
 
-    @PostMapping("/api/event/{id}")
+    @PostMapping("/api/event")
     public Event createEvent(@RequestBody Event event) {
         eventService.createEvent(event);
         return event;
     }
 
-    @PutMapping("/event/{id}")
+    @PutMapping("api/event/{id}")
     public Event updateEvent(@PathVariable int id, @RequestBody Event event) {
         return eventService.updateEvent(id,event);
     }

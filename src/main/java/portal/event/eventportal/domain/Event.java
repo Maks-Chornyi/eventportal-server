@@ -21,12 +21,23 @@ public class Event {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "imageUrl")
+    private String imageUrl;
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     Event() {}
 
-    public Event(String title, String description, int id) {
+    public Event(String title, String description, String imageUrl) {
         this.title = title;
         this.description = description;
-        this.id = id;
+        this.imageUrl = imageUrl;
     }
 
     @Override
