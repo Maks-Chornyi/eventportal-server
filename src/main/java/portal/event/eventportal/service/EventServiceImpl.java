@@ -36,4 +36,9 @@ public class EventServiceImpl implements EventService {
         newEvent.setDescription(event.getDescription());
         return newEvent;
     }
+
+    @Override
+    public void deleteEvent(int id){
+        this.eventRepository.deleteById(id);
+    }
 }

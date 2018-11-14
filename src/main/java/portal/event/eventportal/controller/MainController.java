@@ -41,4 +41,8 @@ public class MainController {
     public Event updateEvent(@PathVariable int id, @RequestBody Event event) {
         return eventService.updateEvent(id,event);
     }
+    @DeleteMapping("/api/event/{id}")
+    public void deleteEvent(@PathVariable int id) {
+         eventService.deleteEvent(id);
+    }
 }
